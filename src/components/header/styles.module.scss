@@ -1,0 +1,142 @@
+@import '@/styles/media.scss';
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  color: var(--color-white);
+  margin-top: 25px;
+  @include media('<phone') {
+    margin-top: 15px;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    .left_wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 70px;
+    }
+    .logo {
+      font-size: 23px;
+      font-weight: 600;
+      letter-spacing: -0.05rem;
+      svg {
+        path {
+          fill: var(--color-black);
+        }
+      }
+    }
+    .menu {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      span {
+        font-weight: 500;
+        color: var(--color-black);
+      }
+
+      @include media('<phone') {
+        display: none;
+      }
+    }
+    .contacts {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      @include media('<phone') {
+        gap: 10px;
+        display: none;
+      }
+      .quick_action {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @include media('<phone') {
+          display: none;
+        }
+        .icon {
+          svg {
+            width: 40px;
+            height: 40px;
+            path {
+              fill: var(--color-secondary);
+            }
+          }
+        }
+        .caption {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          color: var(--color-black);
+          font-weight: 500;
+          font-size: 0.8rem;
+          color: var(--color-gray-400);
+          .title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-black);
+          }
+        }
+      }
+    }
+    .menu_toggle {
+      position: relative;
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      padding: 14px 14px;
+      display: none;
+      background-color: var(--color-white);
+      svg {
+        position: relative;
+        width: 20px;
+        height: 20px;
+      }
+      @include media('<phone') {
+        display: inline-flex;
+      }
+    }
+  }
+  &.white {
+    .wrap {
+      .logo {
+        svg {
+          path {
+            fill: var(--color-white);
+          }
+        }
+      }
+      .menu {
+        span {
+          color: var(--color-white);
+        }
+      }
+      .contacts {
+        .quick_action {
+          .icon {
+            svg {
+              path {
+                fill: var(--color-white);
+              }
+            }
+          }
+          .caption {
+            // color: var(--color-white);
+            .title {
+              color: var(--color-white);
+            }
+          }
+        }
+      }
+    }
+  }
+}

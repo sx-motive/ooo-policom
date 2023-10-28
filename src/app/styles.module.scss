@@ -1,0 +1,9 @@
+@import '@/styles/media.scss';
+
+.slider {
+  position: relative;
+  margin-top: 120px;
+  @include media('<phone') {
+    margin-top: 80px;
+  }
+}

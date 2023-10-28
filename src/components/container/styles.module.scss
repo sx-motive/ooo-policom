@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px 20px;
+  height: 100%;
+  max-width: 1200px;
+  &.full {
+    max-width: 1860px;
+  }
+  &.layout {
+    max-width: 1430px;
+  }
+  .left {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    margin: 0;
+    padding: 0;
+  }
+  .right {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    margin: 0;
+    padding: 0;
+  }
+}

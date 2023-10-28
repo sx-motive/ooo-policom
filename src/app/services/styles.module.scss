@@ -1,0 +1,14 @@
+@import '@/styles/media.scss';
+
+.hero {
+  position: relative;
+  padding-top: var(--padding-top-hero);
+  @include media('<phone') {
+    padding-top: 100px;
+  }
+}
+.wrap {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}

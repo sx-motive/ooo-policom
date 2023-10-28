@@ -1,0 +1,115 @@
+@import '@/styles/media.scss';
+
+.services {
+  position: relative;
+  width: 100%;
+  .services_list {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow: hidden;
+    width: fit-content;
+    transition: all 0.5s cubic-bezier(0.28, 0.81, 0.43, 0.97);
+    .service {
+      position: relative;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 5px;
+      overflow: hidden;
+      min-height: 400px;
+      background-color: var(--color-gray-50);
+      width: 300px;
+
+      @include media('<phone') {
+        min-height: 240px;
+      }
+
+      .title {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        font-size: 1.1rem;
+        letter-spacing: -0.016rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 30px 10px;
+        border-radius: 5px;
+        text-align: center;
+        color: var(--color-black);
+        background-color: var(--color-gray-100);
+        transition: all 0.7s cubic-bezier(0.28, 0.81, 0.43, 0.97);
+        .read_more {
+          position: absolute;
+          display: block;
+          left: 0;
+          width: 100%;
+          text-align: center;
+          font-size: 0.9rem;
+          bottom: -25px;
+          transition: all 0.7s cubic-bezier(0.28, 0.81, 0.43, 0.97);
+          transform: skewY(5deg);
+        }
+      }
+      .image_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90%;
+        transition: scale 1.4s cubic-bezier(0.28, 0.81, 0.43, 0.97);
+      }
+      &:hover {
+        .image_wrap {
+          scale: 1.1;
+        }
+        .title {
+          padding-bottom: 60px;
+          .read_more {
+            transform: skewY(0deg);
+            bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+  .next {
+    position: absolute;
+    top: calc(50% - 100px);
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &.grid {
+    .services_list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      width: 100%;
+      margin-bottom: 40px;
+      @include media('<tablet') {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include media('<phone') {
+        grid-template-columns: 1fr;
+      }
+      .service {
+        width: 100%;
+      }
+      .other {
+        display: none !important;
+      }
+    }
+    .next {
+      display: none;
+    }
+  }
+}

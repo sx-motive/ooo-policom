@@ -1,0 +1,16 @@
+.breadcrumbs {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  span {
+    color: var(--color-gray-400);
+  }
+  a {
+    color: var(--color-gray-400);
+    font-size: 0.85rem;
+    transition: color 0.05s linear;
+    &:hover {
+      color: var(--color-black);
+    }
+  }
+}

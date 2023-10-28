@@ -1,0 +1,20 @@
+.hero_wrap {
+  position: relative;
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .desc {
+    position: relative;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    ul {
+      padding: 10px 20px;
+      li {
+        list-style: initial;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,168 @@
+.button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
+  cursor: pointer;
+
+  &.solid {
+    line-height: 2.8rem;
+    padding: 0 20px;
+    background-color: var(--color-gray-200);
+    color: var(--color-white);
+    border-radius: 5px;
+    span::after {
+      color: var(--color-white);
+    }
+    span::before {
+      color: var(--color-black);
+    }
+    &.reverse {
+      background-color: var(--color-secondary);
+      span::after {
+        color: var(--color-black);
+      }
+      span::before {
+        color: var(--color-white);
+      }
+      .ripple_span {
+        background-color: var(--color-gray-200);
+      }
+    }
+  }
+  &.outline {
+    line-height: 2.8rem;
+    padding: 0 20px;
+    border: 1px solid var(--color-gray-300);
+    background-color: transparent;
+    border-radius: 5px;
+    span::after,
+    span::before {
+      color: var(--color-black);
+    }
+    &.reverse {
+      span::after,
+      span::before {
+        color: var(--color-white);
+      }
+    }
+  }
+  &.transparent {
+    line-height: 2.2rem;
+    padding: 0 14px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: background 0.1s linear;
+    &:hover {
+      background-color: rgba(228, 228, 228, 0.314);
+    }
+  }
+  &.skew {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  &.skew span {
+    color: transparent;
+    display: inline-block;
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  &.skew span::after {
+    top: 105%;
+    transform: skewY(7deg);
+    transform-origin: left top;
+    transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  &.skew span::after,
+  &.skew span::before {
+    content: attr(data-text);
+    display: block;
+    position: absolute;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  &.skew:hover span {
+    transform: translateY(-105%);
+  }
+
+  &.skew span::before {
+    top: 0;
+    transform: skewY(0);
+    transform-origin: right bottom;
+    -webkit-transition: -webkit-transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: -webkit-transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+    -o-transition: -o-transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+    -moz-transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), -moz-transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 2s cubic-bezier(0.19, 1, 0.22, 1),
+      -moz-transform 2s cubic-bezier(0.19, 1, 0.22, 1), -o-transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &.skew:hover span::before {
+    transform: skewY(7deg);
+  }
+
+  &.skew:hover span:after {
+    -webkit-transform: skewY(0);
+    -moz-transform: skewY(0);
+    -ms-transform: skewY(0);
+    -o-transform: skewY(0);
+    transform: skewY(0);
+  }
+
+  &:hover .ripple .ripple_span {
+    border-radius: 0;
+    transform: translateY(0);
+    transition-duration: 0s, 0s;
+    animation: rippleIn 0.5s cubic-bezier(0.4, 0, 0, 1) !important;
+  }
+
+  .ripple {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+    transform: translateZ(0);
+    border-radius: inherit;
+    .ripple_span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform: translateY(100%);
+      background-color: var(--color-secondary);
+      border-radius: 50%;
+      -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+        -webkit-border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+      transition: -webkit-transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+        -webkit-border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+      -o-transition: border-radius 0.5s cubic-bezier(0.4, 0, 0, 1), -o-transform 0.5s cubic-bezier(0.4, 0, 0, 1);
+      -moz-transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1), border-radius 0.5s cubic-bezier(0.4, 0, 0, 1),
+        -moz-transform 0.5s cubic-bezier(0.4, 0, 0, 1), -moz-border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1), border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1), border-radius 0.5s cubic-bezier(0.4, 0, 0, 1),
+        -webkit-transform 0.5s cubic-bezier(0.4, 0, 0, 1), -moz-transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+        -o-transform 0.5s cubic-bezier(0.4, 0, 0, 1), -webkit-border-radius 0.5s cubic-bezier(0.4, 0, 0, 1),
+        -moz-border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+    }
+  }
+}
+
+@keyframes rippleIn {
+  0% {
+    border-radius: 100%;
+    transform: translateY(-100%) translateZ(0);
+  }
+
+  100% {
+    border-radius: 0;
+    transform: translateY(0) translateZ(0);
+  }
+}

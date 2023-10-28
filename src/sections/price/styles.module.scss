@@ -1,0 +1,91 @@
+@import '@/styles/media.scss';
+
+.list {
+  h2 {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  p {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 880px;
+  }
+  .services_list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    .service {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 1 1;
+      border: 1px solid var(--color-gray-200);
+      margin-top: -1px;
+      padding: 10px 20px;
+      // background-color: #f8f8f8;
+      @include media('<phone') {
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+      &:hover {
+        background-color: var(--color-white);
+      }
+      h3 {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0rem;
+        @include media('<phone') {
+          display: block;
+          font-size: 1.3rem;
+          margin-bottom: 10px;
+        }
+      }
+      .info_wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        @include media('<phone') {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .price {
+          position: relative;
+          height: 100%;
+          font-size: 1.2rem;
+          font-weight: 600;
+          border-left: 1px solid var(--color-gray-200);
+          border-right: 1px solid var(--color-gray-200);
+          padding: 0 50px;
+          @include media('<phone') {
+            padding: 10px 0;
+            border: none;
+          }
+          span {
+            font-size: 1rem;
+          }
+        }
+        .buttons_wrap {
+          position: relative;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          @include media('<phone') {
+            a:nth-child(1) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
